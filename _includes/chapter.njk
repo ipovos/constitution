@@ -1,13 +1,7 @@
-<!doctype html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Розділ {{ number }}. {{ title }} | Конституція України</title>
-</head>
-<body>
+---
+layout: 'general.njk'
+---
+
 <h1>{{ title }}</h1>
 {% set chapterName = ["chapter-", string] | join %}
 {% set taglist = collections[ chapterName ] %}
@@ -15,5 +9,3 @@
     <h2><a href="{{ post.url | url }}">Стаття {{ post.data.number }}</a></h2>
     {{ post.templateContent | safe }}
 {% endfor %}
-</body>
-</html>
