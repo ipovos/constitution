@@ -1,5 +1,4 @@
 ---
-tags: no
 permalink: /
 layout: main.liquid
 ---
