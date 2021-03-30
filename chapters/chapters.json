@@ -1,4 +1,7 @@
 {
   "layout": "chapter.njk",
+  "tags": [
+    "chapter"
+  ],
   "permalink": "chapters/{{ number }}/index.html"
 }
