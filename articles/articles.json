@@ -1,4 +1,4 @@
 {
-  "layout": "article.liquid",
+  "layout": "article.njk",
   "permalink": "articles/{{ number }}/index.html"
 }
