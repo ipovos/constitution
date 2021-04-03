@@ -1,3 +1,10 @@
+class General {
+  render(data) {
+    const {getTitle} = data;
+    const title =
+      typeof getTitle === 'function' ? getTitle(data) : 'Конституція України';
+
+    return `
 <!doctype html>
 <html lang="uk">
 <head>
@@ -5,9 +12,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Розділ {{ number }}. {{ title }} | Конституція України</title>
+    <title>${title}</title>
 </head>
 <body>
-{{ content | safe}}
+${data.content}
 </body>
 </html>
+    `;
+  }
+}
+
+module.exports = General;

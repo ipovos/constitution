@@ -1,4 +1,4 @@
 {
-  "layout": "article.njk",
+  "layout": "article.11ty.js",
   "permalink": "articles/{{ number }}/index.html"
 }

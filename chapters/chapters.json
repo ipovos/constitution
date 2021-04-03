@@ -1,5 +1,5 @@
 {
-  "layout": "chapter.njk",
+  "layout": "chapter.11ty.js",
   "tags": [
     "chapter"
   ],

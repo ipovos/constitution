@@ -6,13 +6,14 @@ class Main {
   data() {
     return {
       permalink: '/',
-      layout: 'general.njk',
+      layout: 'general.11ty.js',
+      getTitle() {
+        return 'Конституція України';
+      },
     };
   }
 
   render(data) {
-    // console.log(data.collections);
-    // console.log(data.collections['chapter-01'][0])
     return render([
       Title({
         level: 1,
