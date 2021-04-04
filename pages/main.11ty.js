@@ -28,7 +28,7 @@ class Main {
               children: `Розділ ${chapter.data.number}. ${chapter.data.title}`,
             }),
           }),
-          data.collections[`chapter-${chapter.data.string}`].map((article) => {
+          data.collections[`chapter-${chapter.data.number}`].map((article) => {
             return [
               Title({
                 level: 3,
