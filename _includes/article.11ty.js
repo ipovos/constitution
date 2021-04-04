@@ -19,6 +19,16 @@ class Article {
       }),
       data.content,
       `<p><a href="/">⬅ Конституція України</a></p>`,
+      data.number > 1
+        ? `<p><a href="/articles/${data.number - 1}">⬅️ Стаття ${
+            data.number - 1
+          }</a></p>`
+        : null,
+      data.number < 161
+        ? `<p><a href="/articles/${data.number + 1}">➡️ Стаття ${
+            data.number + 1
+          }</a></p>`
+        : null,
     ]);
   }
 }
