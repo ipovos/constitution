@@ -24,7 +24,7 @@ class Article {
             data.number - 1
           }</a></p>`
         : null,
-      data.number < 161
+      data.number < data.collections.article.length
         ? `<p><a href="/articles/${data.number + 1}">➡️ Стаття ${
             data.number + 1
           }</a></p>`
