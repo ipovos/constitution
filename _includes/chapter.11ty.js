@@ -7,7 +7,7 @@ class Chapter {
     return {
       layout: 'general.11ty.js',
       getTitle(data) {
-        return `Розділ ${data.number} | Конституція України`;
+        return `Розділ ${data.number}. ${data.title} | Конституція України`;
       },
     };
   }
@@ -16,7 +16,7 @@ class Chapter {
     return render([
       Title({
         level: 1,
-        children: data.title,
+        children: `Розділ ${data.number}. ${data.title}`,
       }),
       data.collections['chapter-' + data['string']].map((article) => {
         return [
