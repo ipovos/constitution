@@ -1,3 +1,4 @@
+const Title = require('../components/Title');
 const render = require('../components/render');
 
 class Article {
@@ -12,6 +13,10 @@ class Article {
 
   render(data) {
     return render([
+      Title({
+        level: 1,
+        children: `Стаття ${data.number}`,
+      }),
       data.content,
       `<p><a href="/">⬅ Конституція України</a></p>`,
     ]);
