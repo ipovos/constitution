@@ -1,5 +1,7 @@
 const Title = require('../components/Title');
 const Link = require('../components/Link');
+const List = require('../components/List');
+const ListItem = require('../components/ListItem');
 const render = require('../components/render');
 
 class Contents {
@@ -16,15 +18,17 @@ class Contents {
   render(data) {
     return render([
       Title({level: 1, children: 'Конституція України'}),
-      `<ol>${render(
-        data.collections.chapter.map(
-          (chapter) =>
-            `<li>${Link({
+      List({
+        type: 'ordered',
+        children: data.collections.chapter.map((chapter) =>
+          ListItem({
+            children: Link({
               href: chapter.url,
               children: chapter.data.title,
-            })}</li>`,
+            }),
+          }),
         ),
-      )}</ol>`,
+      }),
     ]);
   }
 }
