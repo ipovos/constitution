@@ -1,4 +1,6 @@
 const {Title} = require('../components/Title');
+const {Link} = require('../components/Link');
+const {p} = require('../components/html');
 const {render} = require('../components/render');
 
 class Article {
@@ -12,22 +14,51 @@ class Article {
   }
 
   render(data) {
+    const {articlesSortedByNumber} = data.collections;
+    const indexes = articlesSortedByNumber.reduce((acc, current, index) => {
+      if (current.data.number === data.number) {
+        return {
+          previous: index - 1,
+          current: index,
+          next: index + 1,
+        };
+      }
+
+      return acc;
+    }, null);
+
     return render([
       Title({
         level: 1,
         children: `Стаття ${data.number}`,
       }),
       data.content,
-      `<p><a href="/">⬅ Конституція України</a></p>`,
-      data.number > 1
-        ? `<p><a href="/articles/${data.number - 1}">⬅️ Стаття ${
-            data.number - 1
-          }</a></p>`
+      p({
+        children: Link({
+          href: '/',
+          children: 'Конституція України',
+        }),
+      }),
+      data.number > articlesSortedByNumber[0].data.number
+        ? p({
+            children: Link({
+              href: articlesSortedByNumber[indexes.previous].url,
+              children: `⬅️ Стаття ${
+                articlesSortedByNumber[indexes.previous].data.number
+              } `,
+            }),
+          })
         : null,
-      data.number < data.collections.article.length
-        ? `<p><a href="/articles/${data.number + 1}">➡️ Стаття ${
-            data.number + 1
-          }</a></p>`
+      data.number <
+      articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
+        ? p({
+            children: Link({
+              href: articlesSortedByNumber[indexes.next].url,
+              children: `Стаття ${
+                articlesSortedByNumber[indexes.next].data.number
+              } ➡️`,
+            }),
+          })
         : null,
     ]);
   }
