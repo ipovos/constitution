@@ -28,18 +28,20 @@ class Main {
               children: `Розділ ${chapter.data.number}. ${chapter.data.title}`,
             }),
           }),
-          data.collections[`chapter-${chapter.data.number}`].map((article) => {
-            return [
-              Title({
-                level: 3,
-                children: Link({
-                  href: article.url,
-                  children: `Стаття ${article.data.number}`,
+          (data.collections[`chapter-${chapter.data.number}`] || []).map(
+            (article) => {
+              return [
+                Title({
+                  level: 3,
+                  children: Link({
+                    href: article.url,
+                    children: `Стаття ${article.data.number}`,
+                  }),
                 }),
-              }),
-              article.templateContent,
-            ];
-          }),
+                article.templateContent,
+              ];
+            },
+          ),
         ];
       }),
     ]);
