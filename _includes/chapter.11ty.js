@@ -14,6 +14,19 @@ class Chapter {
   }
 
   render(data) {
+    const {chaptersSortedByNumber} = data.collections;
+    const indexes = chaptersSortedByNumber.reduce((acc, current, index) => {
+      if (current.data.number === data.number) {
+        return {
+          previous: index - 1,
+          current: index,
+          next: index + 1,
+        };
+      }
+
+      return acc;
+    }, null);
+
     return render([
       Title({
         level: 1,
@@ -41,19 +54,24 @@ class Chapter {
           children: 'Конституція України',
         }),
       }),
-      data.number > 1
+      data.number > chaptersSortedByNumber[0].data.number
         ? p({
             children: Link({
-              href: data.collections.chapter[data.number - 2].url,
-              children: `⬅️ Розділ ${data.number - 1} `,
+              href: chaptersSortedByNumber[indexes.previous].url,
+              children: `⬅️ Розділ ${
+                chaptersSortedByNumber[indexes.previous].data.number
+              } `,
             }),
           })
         : null,
-      data.number < data.collections.chapter.length
+      data.number <
+      chaptersSortedByNumber[chaptersSortedByNumber.length - 1].data.number
         ? p({
             children: Link({
-              href: data.collections.chapter[data.number].url,
-              children: `Розділ ${data.number + 1} ➡️`,
+              href: chaptersSortedByNumber[indexes.next].url,
+              children: `Розділ ${
+                chaptersSortedByNumber[indexes.next].data.number
+              } ➡️`,
             }),
           })
         : null,

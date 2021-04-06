@@ -20,7 +20,7 @@ class Contents {
       Title({level: 1, children: 'Конституція України'}),
       List({
         type: 'ordered',
-        children: data.collections.chapter.map((chapter) =>
+        children: data.collections.chaptersSortedByNumber.map((chapter) =>
           ListItem({
             children: Link({
               href: chapter.url,
