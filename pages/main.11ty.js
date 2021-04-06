@@ -19,31 +19,33 @@ class Main {
         level: 1,
         children: 'Конституція України',
       }),
-      data.collections.chapter.map((chapter) => {
-        return [
-          Title({
-            level: 2,
-            children: Link({
-              href: chapter.url,
-              children: `Розділ ${chapter.data.number}. ${chapter.data.title}`,
+      data.collections.chapter
+        .sort((a, b) => a.data.number - b.data.number)
+        .map((chapter) => {
+          return [
+            Title({
+              level: 2,
+              children: Link({
+                href: chapter.url,
+                children: `Розділ ${chapter.data.number}. ${chapter.data.title}`,
+              }),
             }),
-          }),
-          (data.collections[`chapter-${chapter.data.number}`] || []).map(
-            (article) => {
-              return [
-                Title({
-                  level: 3,
-                  children: Link({
-                    href: article.url,
-                    children: `Стаття ${article.data.number}`,
+            (data.collections[`chapter-${chapter.data.number}`] || [])
+              .sort((a, b) => a.data.number - b.data.number)
+              .map((article) => {
+                return [
+                  Title({
+                    level: 3,
+                    children: Link({
+                      href: article.url,
+                      children: `Стаття ${article.data.number}`,
+                    }),
                   }),
-                }),
-                article.templateContent,
-              ];
-            },
-          ),
-        ];
-      }),
+                  article.templateContent,
+                ];
+              }),
+          ];
+        }),
     ]);
   }
 }

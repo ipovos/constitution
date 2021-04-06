@@ -19,7 +19,11 @@ class Chapter {
         level: 1,
         children: `Розділ ${data.number}. ${data.title}`,
       }),
-      (data.collections['chapter-' + data['number']] || []).map((article) => {
+      (
+        data.collections['chapter-' + data['number']]?.sort(
+          (a, b) => a.data.number - b.data.number,
+        ) ?? []
+      ).map((article) => {
         return [
           Title({
             level: 2,
