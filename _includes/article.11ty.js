@@ -1,5 +1,5 @@
-const Title = require('../components/Title');
-const render = require('../components/render');
+const {Title} = require('../components/Title');
+const {render} = require('../components/render');
 
 class Article {
   data() {

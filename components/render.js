@@ -18,4 +18,4 @@ function render(children) {
   throw new Error('unsupported children type');
 }
 
-module.exports = render;
+module.exports = {render};

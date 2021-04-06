@@ -1,4 +1,4 @@
-const render = require('./render');
+const {render} = require('./render');
 
 const typeToTagName = {
   ordered: 'ol',
@@ -15,4 +15,4 @@ function List({type, children}) {
   return `<${tagName}>${render(children)}</${tagName}>`;
 }
 
-module.exports = List;
+module.exports = {List};

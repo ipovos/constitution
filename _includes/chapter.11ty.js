@@ -1,6 +1,6 @@
-const Title = require('../components/Title');
-const Link = require('../components/Link');
-const render = require('../components/render');
+const {Title} = require('../components/Title');
+const {Link} = require('../components/Link');
+const {render} = require('../components/render');
 
 class Chapter {
   data() {

@@ -1,8 +1,8 @@
-const Title = require('../components/Title');
-const Link = require('../components/Link');
-const List = require('../components/List');
-const ListItem = require('../components/ListItem');
-const render = require('../components/render');
+const {Title} = require('../components/Title');
+const {Link} = require('../components/Link');
+const {List} = require('../components/List');
+const {ListItem} = require('../components/ListItem');
+const {render} = require('../components/render');
 
 class Contents {
   data() {
