@@ -37,6 +37,22 @@ class Chapter {
           children: 'Конституція України',
         }),
       }),
+      data.number > 1
+        ? p({
+            children: Link({
+              href: data.collections.chapter[data.number - 2].url,
+              children: `⬅️ Розділ ${data.number - 1} `,
+            }),
+          })
+        : null,
+      data.number < data.collections.chapter.length
+        ? p({
+            children: Link({
+              href: data.collections.chapter[data.number].url,
+              children: `Розділ ${data.number + 1} ➡️`,
+            }),
+          })
+        : null,
     ]);
   }
 }
