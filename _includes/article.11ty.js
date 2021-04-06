@@ -14,6 +14,13 @@ class Article {
   }
 
   render(data) {
+    const chapterNumber = Number(
+      data.tags.find((tag) => tag.includes('chapter')).split('-')[1],
+    );
+    const parentChapter = data.collections.chapter.find(
+      (chapter) => chapter.data.number === chapterNumber,
+    );
+
     const {articlesSortedByNumber} = data.collections;
     const indexes = articlesSortedByNumber.reduce((acc, current, index) => {
       if (current.data.number === data.number) {
@@ -34,10 +41,17 @@ class Article {
       }),
       data.content,
       p({
-        children: Link({
-          href: '/',
-          children: 'Конституція України',
-        }),
+        children: [
+          Link({
+            href: '/',
+            children: 'Конституція України',
+          }),
+          ' / ',
+          Link({
+            href: parentChapter.url,
+            children: `Розділ ${parentChapter.data.number}. ${parentChapter.data.title}`,
+          }),
+        ],
       }),
       data.number > articlesSortedByNumber[0].data.number
         ? p({
