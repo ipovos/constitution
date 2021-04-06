@@ -1,5 +1,6 @@
 const {Title} = require('../components/Title');
 const {Link} = require('../components/Link');
+const {p} = require('../components/html');
 const {render} = require('../components/render');
 
 class Chapter {
@@ -30,7 +31,12 @@ class Chapter {
           article.templateContent,
         ];
       }),
-      `<p><a href="/">⬅ Конституція України</a></p>`,
+      p({
+        children: Link({
+          href: '/',
+          children: 'Конституція України',
+        }),
+      }),
     ]);
   }
 }
