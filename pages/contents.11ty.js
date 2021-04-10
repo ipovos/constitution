@@ -16,7 +16,7 @@ class Contents {
     return render([
       nav({
         class: 'top-nav',
-        children: a({href: '/one-page', children: 'На одній сторінці'}),
+        children: a({href: '/one-page', children: 'Однією сторінкою'}),
       }),
 
       main({
