@@ -1,13 +1,10 @@
-const {Title} = require('../components/Title');
-const {Link} = require('../components/Link');
-const {List} = require('../components/List');
-const {ListItem} = require('../components/ListItem');
+const {nav, a, h1, ol, li, main} = require('../components/html');
 const {render} = require('../components/render');
 
 class Contents {
   data() {
     return {
-      permalink: '/contents/index.html',
+      permalink: '/',
       layout: 'general.11ty.js',
       getTitle() {
         return 'Зміст | Конституція України';
@@ -17,17 +14,25 @@ class Contents {
 
   render(data) {
     return render([
-      Title({level: 1, children: 'Конституція України'}),
-      List({
-        type: 'ordered',
-        children: data.collections.chaptersSortedByNumber.map((chapter) =>
-          ListItem({
-            children: Link({
-              href: chapter.url,
-              children: chapter.data.title,
-            }),
+      nav({
+        class: 'top-nav',
+        children: a({href: '/one-page', children: 'На одній сторінці'}),
+      }),
+
+      main({
+        children: [
+          h1({class: 'tc', children: 'Конституція України'}),
+          ol({
+            children: data.collections.chaptersSortedByNumber.map((chapter) =>
+              li({
+                children: a({
+                  href: chapter.url,
+                  children: chapter.data.title,
+                }),
+              }),
+            ),
           }),
-        ),
+        ],
       }),
     ]);
   }

@@ -1,6 +1,4 @@
-const {Title} = require('../components/Title');
-const {Link} = require('../components/Link');
-const {p} = require('../components/html');
+const {a, nav, h1, article, main} = require('../components/html');
 const {render} = require('../components/render');
 
 class Article {
@@ -35,45 +33,58 @@ class Article {
     }, null);
 
     return render([
-      Title({
-        level: 1,
-        children: `Стаття ${data.number}`,
-      }),
-      data.content,
-      p({
+      nav({
+        class: 'top-nav',
         children: [
-          Link({
+          a({
             href: '/',
             children: 'Конституція України',
           }),
           ' / ',
-          Link({
+          a({
             href: parentChapter.url,
             children: `Розділ ${parentChapter.data.number}. ${parentChapter.data.title}`,
           }),
         ],
       }),
-      data.number > articlesSortedByNumber[0].data.number
-        ? p({
-            children: Link({
-              href: articlesSortedByNumber[indexes.previous].url,
-              children: `⬅️ Стаття ${
-                articlesSortedByNumber[indexes.previous].data.number
-              } `,
-            }),
-          })
-        : null,
-      data.number <
-      articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
-        ? p({
-            children: Link({
-              href: articlesSortedByNumber[indexes.next].url,
-              children: `Стаття ${
-                articlesSortedByNumber[indexes.next].data.number
-              } ➡️`,
-            }),
-          })
-        : null,
+
+      main({
+        children: [
+          article({
+            children: [
+              h1({
+                class: 'tc',
+                children: `Стаття ${data.number}`,
+              }),
+              data.content,
+            ],
+          }),
+        ],
+      }),
+
+      nav({
+        class: 'bottom-nav',
+        children: [
+          data.number > articlesSortedByNumber[0].data.number
+            ? a({
+                href: articlesSortedByNumber[indexes.previous].url,
+                children: `⬅️ Стаття ${
+                  articlesSortedByNumber[indexes.previous].data.number
+                } `,
+              })
+            : null,
+          data.number <
+          articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
+            ? a({
+                class: 'right',
+                href: articlesSortedByNumber[indexes.next].url,
+                children: `Стаття ${
+                  articlesSortedByNumber[indexes.next].data.number
+                } ➡️`,
+              })
+            : null,
+        ],
+      }),
     ]);
   }
 }
