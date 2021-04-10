@@ -77,6 +77,7 @@ body {
 .top-nav {
     margin-top: ${LINE_HEIGHT_FRACTION}rem;
     margin-bottom: -1px;
+    padding-bottom: ${LINE_HEIGHT_FRACTION}rem;
     border-bottom: 1px solid #e6e6e6;
 }
 
@@ -97,7 +98,7 @@ h1 {
     line-height: 1.6641;
 }
 
-h2 {
+h2, .h2 {
     margin-top: ${LINE_HEIGHT_FRACTION}rem;
     margin-bottom: ${LINE_HEIGHT_FRACTION}rem;
     font-size: 1.563rem;
@@ -136,8 +137,25 @@ ol, ul {
     margin-top: ${LINE_HEIGHT_FRACTION * 2}rem;
 }
 
-@media (min-width: 760px) {
+.space-top-3 {
+    margin-top: ${LINE_HEIGHT_FRACTION * 3}rem;
+}
 
+@media (max-width: 760px) {
+    h1 {
+        font-size: 1.602rem;
+        line-height: 2.03;
+    }
+    
+    h2, .h2 {
+        font-size: 1.125rem;
+        line-height: 1.4445;        
+    }
+    
+    h3 {
+        font-size: 1rem;
+        line-height: ${LINE_HEIGHT_FRACTION};
+    }
 }
     </style>
 </head>

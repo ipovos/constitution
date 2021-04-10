@@ -33,7 +33,7 @@ class Main {
               .sort((a, b) => a.data.number - b.data.number)
               .map((chapter, index) => {
                 return article({
-                  class: index > 0 ? 'space-top-2' : null,
+                  class: index > 0 ? 'space-top-3' : null,
                   children: [
                     h2({
                       class: 'tc',
@@ -44,10 +44,12 @@ class Main {
                     }),
                     (data.collections[`chapter-${chapter.data.number}`] || [])
                       .sort((a, b) => a.data.number - b.data.number)
-                      .map((constitutionArticle) => {
+                      .map((constitutionArticle, innerIndex) => {
                         return article({
+                          class: innerIndex > 0 ? 'space-top-2' : null,
                           children: [
                             h3({
+                              class: 'h2',
                               children: a({
                                 href: constitutionArticle.url,
                                 children: `Стаття ${constitutionArticle.data.number}`,
