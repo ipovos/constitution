@@ -36,16 +36,16 @@ class Main {
                   children: a({
                     href: data.collections.preamble[0].url,
                     children: data.collections.preamble[0].data.title,
-                  })
+                  }),
                 }),
                 data.collections.preamble[0].templateContent,
               ],
             }),
             data.collections.chapter
               .sort((a, b) => a.data.number - b.data.number)
-              .map((chapter, index) => {
+              .map((chapter) => {
                 return article({
-                  class: index > 0 ? 'space-top-3' : null,
+                  class: 'space-top-3',
                   children: [
                     h2({
                       class: 'tc',
