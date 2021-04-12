@@ -129,6 +129,15 @@ ol, ul {
     padding-left: 2rem;
 }
 
+.first-li {
+    padding-left: 2rem;
+    margin-bottom: 0;
+}
+
+.first-li + ol, .first-li + ul {
+    margin-top: 0;
+}
+
 .tc {
     text-align: center;
 }

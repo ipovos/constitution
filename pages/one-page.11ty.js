@@ -29,6 +29,18 @@ class Main {
               class: 'tc',
               children: 'Конституція України',
             }),
+            article({
+              children: [
+                h2({
+                  class: 'tc',
+                  children: a({
+                    href: data.collections.preamble[0].url,
+                    children: data.collections.preamble[0].data.title,
+                  })
+                }),
+                data.collections.preamble[0].templateContent,
+              ],
+            }),
             data.collections.chapter
               .sort((a, b) => a.data.number - b.data.number)
               .map((chapter, index) => {

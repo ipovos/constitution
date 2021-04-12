@@ -12,7 +12,7 @@ class Chapter {
   }
 
   render(data) {
-    const {chaptersSortedByNumber} = data.collections;
+    const {chaptersSortedByNumber, preamble} = data.collections;
     const indexes = chaptersSortedByNumber.reduce((acc, current, index) => {
       if (current.data.number === data.number) {
         return {
@@ -80,7 +80,10 @@ class Chapter {
                   chaptersSortedByNumber[indexes.previous].data.number
                 } `,
               })
-            : null,
+            : a({
+                href: preamble[0].url,
+                children: `⬅️ ${preamble[0].data.title}`,
+              }),
           data.number <
           chaptersSortedByNumber[chaptersSortedByNumber.length - 1].data.number
             ? a({

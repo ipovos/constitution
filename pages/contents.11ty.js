@@ -1,4 +1,4 @@
-const {nav, a, h1, ol, li, main} = require('../components/html');
+const {nav, a, h1, ol, li, main, p} = require('../components/html');
 const {render} = require('../components/render');
 
 class Contents {
@@ -22,6 +22,13 @@ class Contents {
       main({
         children: [
           h1({class: 'tc', children: 'Конституція України'}),
+          p({
+            class: 'first-li',
+            children: a({
+              href: data.collections.preamble[0].url,
+              children: data.collections.preamble[0].data.title,
+            }),
+          }),
           ol({
             children: data.collections.chaptersSortedByNumber.map((chapter) =>
               li({
