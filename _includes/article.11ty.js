@@ -1,13 +1,4 @@
-const {
-  a,
-  span,
-  header,
-  nav,
-  h1,
-  article,
-  main,
-  p,
-} = require('../components/html');
+const {a, header, nav, h1, article, main, p} = require('../components/html');
 const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
 const {createPageTitle} = require('../pages/utils');
