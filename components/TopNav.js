@@ -6,36 +6,39 @@ function TopNav({current} = {}) {
     nav({
       class: 'top-nav',
       children: [
-        MainPageLink({disabled: current === 'main'}),
-        AllArticlesPageLink({disabled: current === 'all'}),
-        AboutPageLink({disabled: current === 'about'}),
+        MainPageLink({current: current === 'main'}),
+        AllArticlesPageLink({current: current === 'all'}),
+        AboutPageLink({current: current === 'about'}),
       ],
     }),
   );
 }
 
-function MainPageLink({disabled = false} = {}) {
+function MainPageLink({current = false} = {}) {
   return render(
     a({
-      href: disabled ? null : '/',
+      class: current ? 'current' : null,
+      href: current ? null : '/',
       children: 'Головна',
     }),
   );
 }
 
-function AllArticlesPageLink({disabled = false} = {}) {
+function AllArticlesPageLink({current = false} = {}) {
   return render(
     a({
-      href: disabled ? null : '/all',
+      class: current ? 'current' : null,
+      href: current ? null : '/all',
       children: 'Всі статті',
     }),
   );
 }
 
-function AboutPageLink({disabled = false} = {}) {
+function AboutPageLink({current = false} = {}) {
   return render(
     a({
-      href: disabled ? null : '/about',
+      class: current ? 'current' : null,
+      href: current ? null : '/about',
       children: 'Про сайт',
     }),
   );
