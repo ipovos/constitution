@@ -1,5 +1,5 @@
-const {a, h1, main, p} = require('../components/html');
-const {TopNavAbout} = require('../components/TopNav');
+const {h1, main, p} = require('../components/html');
+const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
 const {createPageTitle} = require('./utils');
 
@@ -16,7 +16,7 @@ class About {
 
   render(data) {
     return render([
-      TopNavAbout(),
+      TopNav({current: 'about'}),
 
       main({
         children: [

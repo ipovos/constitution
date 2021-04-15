@@ -1,61 +1,44 @@
 const {nav, a} = require('./html');
 const {render} = require('./render');
 
-const MAIN_PAGE_LINK = render(
-  a({
-    href: '/',
-    children: 'Головна',
-  }),
-);
-
-const ALL_ARTICLES_PAGE_LINK = render(
-  a({
-    href: '/all',
-    children: 'Всі статті',
-  }),
-);
-
-const ABOUT_PAGE_LINK = render(
-  a({
-    href: '/about',
-    children: 'Про сайт',
-  }),
-);
-
-function TopNav() {
+function TopNav({current} = {}) {
   return render(
     nav({
       class: 'top-nav',
-      children: [MAIN_PAGE_LINK, ALL_ARTICLES_PAGE_LINK, ABOUT_PAGE_LINK],
+      children: [
+        MainPageLink({disabled: current === 'main'}),
+        AllArticlesPageLink({disabled: current === 'all'}),
+        AboutPageLink({disabled: current === 'about'}),
+      ],
     }),
   );
 }
 
-function TopNavAbout() {
+function MainPageLink({disabled = false} = {}) {
   return render(
-    nav({
-      class: 'top-nav',
-      children: [MAIN_PAGE_LINK, ALL_ARTICLES_PAGE_LINK],
+    a({
+      href: disabled ? null : '/',
+      children: 'Головна',
     }),
   );
 }
 
-function TopNavAll() {
+function AllArticlesPageLink({disabled = false} = {}) {
   return render(
-    nav({
-      class: 'top-nav',
-      children: [MAIN_PAGE_LINK, ABOUT_PAGE_LINK],
+    a({
+      href: disabled ? null : '/all',
+      children: 'Всі статті',
     }),
   );
 }
 
-function TopNavMain() {
+function AboutPageLink({disabled = false} = {}) {
   return render(
-    nav({
-      class: 'top-nav',
-      children: [ALL_ARTICLES_PAGE_LINK, ABOUT_PAGE_LINK],
+    a({
+      href: disabled ? null : '/about',
+      children: 'Про сайт',
     }),
   );
 }
 
-module.exports = {TopNav, TopNavAbout, TopNavAll, TopNavMain};
+module.exports = {TopNav};

@@ -1,5 +1,5 @@
 const {a, main, article, h1, h2, h3} = require('../components/html');
-const {TopNavAll} = require('../components/TopNav');
+const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
 
 class Main {
@@ -15,7 +15,7 @@ class Main {
 
   render(data) {
     return render([
-      TopNavAll(),
+      TopNav({current: 'all'}),
 
       main({
         children: article({
