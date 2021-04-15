@@ -16,4 +16,6 @@ module.exports = function (eleventyConfig) {
         .sort((a, b) => a.data.number - b.data.number);
     },
   );
+
+  eleventyConfig.addPassthroughCopy('styles');
 };
