@@ -4,6 +4,7 @@ class Article {
   data() {
     return {
       number: 64,
+      permalink: 'articles/64/index.html',
     };
   }
 
