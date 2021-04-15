@@ -1,12 +1,14 @@
-const {nav, a, article, main, h1} = require('../components/html');
+const {nav, a, article, header, p, main, h1} = require('../components/html');
+const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
+const {createPageTitle} = require('../pages/utils');
 
 class ChapterAdditional {
   data() {
     return {
       layout: 'general.11ty.js',
       getTitle(data) {
-        return `${data.title} | Конституція України`;
+        return createPageTitle(data.title);
       },
     };
   }
@@ -15,24 +17,26 @@ class ChapterAdditional {
     const {chaptersSortedByNumber} = data.collections;
 
     return render([
-      nav({
-        class: 'top-nav',
-        children: [
-          a({
-            href: '/',
-            children: 'Конституція України',
-          }),
-        ],
-      }),
+      TopNav(),
 
       main({
         children: [
           article({
             children: [
+              header({
+                class: 'tc',
+                children: [
+                  p({
+                    children: 'Конституція України',
+                  }),
+                ],
+              }),
+
               h1({
                 class: 'tc',
                 children: data.title,
               }),
+
               data.content,
             ],
           }),

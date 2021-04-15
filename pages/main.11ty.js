@@ -1,5 +1,7 @@
-const {nav, a, h1, ol, li, main, p} = require('../components/html');
+const {a, h1, ol, li, main, p} = require('../components/html');
+const {TopNavMain} = require('../components/TopNav');
 const {render} = require('../components/render');
+const {createPageTitle} = require('./utils');
 
 class Contents {
   data() {
@@ -7,17 +9,14 @@ class Contents {
       permalink: '/',
       layout: 'general.11ty.js',
       getTitle() {
-        return 'Зміст | Конституція України';
+        return createPageTitle('Головна');
       },
     };
   }
 
   render(data) {
     return render([
-      nav({
-        class: 'top-nav',
-        children: a({href: '/one-page', children: 'Однією сторінкою'}),
-      }),
+      TopNavMain(),
 
       main({
         children: [

@@ -1,12 +1,23 @@
-const {a, nav, h1, article, main} = require('../components/html');
+const {
+  a,
+  span,
+  header,
+  nav,
+  h1,
+  article,
+  main,
+  p,
+} = require('../components/html');
+const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
+const {createPageTitle} = require('../pages/utils');
 
 class Article {
   data() {
     return {
       layout: 'general.11ty.js',
       getTitle(data) {
-        return `Стаття ${data.number} | Конституція України`;
+        return createPageTitle(`Стаття ${data.number}`);
       },
     };
   }
@@ -33,29 +44,32 @@ class Article {
     }, null);
 
     return render([
-      nav({
-        class: 'top-nav',
-        children: [
-          a({
-            href: '/',
-            children: 'Конституція України',
-          }),
-          ' / ',
-          a({
-            href: parentChapter.url,
-            children: `Розділ ${parentChapter.data.number}. ${parentChapter.data.title}`,
-          }),
-        ],
-      }),
+      TopNav(),
 
       main({
         children: [
           article({
             children: [
+              header({
+                class: 'tc',
+                children: [
+                  p({
+                    children: [
+                      'Конституція України <br>',
+                      a({
+                        href: parentChapter.url,
+                        children: `Розділ ${parentChapter.data.number}. ${parentChapter.data.title} `,
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+
               h1({
                 class: 'tc',
-                children: `Стаття ${data.number}`,
+                children: [`Стаття ${data.number}`],
               }),
+
               data.content,
             ],
           }),

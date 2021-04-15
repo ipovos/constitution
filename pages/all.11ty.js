@@ -1,10 +1,11 @@
-const {nav, a, main, article, h1, h2, h3} = require('../components/html');
+const {a, main, article, h1, h2, h3} = require('../components/html');
+const {TopNavAll} = require('../components/TopNav');
 const {render} = require('../components/render');
 
 class Main {
   data() {
     return {
-      permalink: '/one-page/index.html',
+      permalink: '/all/index.html',
       layout: 'general.11ty.js',
       getTitle() {
         return 'Конституція України';
@@ -14,13 +15,7 @@ class Main {
 
   render(data) {
     return render([
-      nav({
-        class: 'top-nav',
-        children: a({
-          href: '/',
-          children: 'Зміст',
-        }),
-      }),
+      TopNavAll(),
 
       main({
         children: article({

@@ -14,8 +14,10 @@ function createHostedComponent(tagName) {
 module.exports = {
   a: createHostedComponent('a'),
   div: createHostedComponent('div'),
+  span: createHostedComponent('span'),
   p: createHostedComponent('p'),
   nav: createHostedComponent('nav'),
+  header: createHostedComponent('header'),
   main: createHostedComponent('main'),
   article: createHostedComponent('article'),
   section: createHostedComponent('section'),
