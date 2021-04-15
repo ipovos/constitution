@@ -16,8 +16,21 @@ class ChapterAdditional {
   render(data) {
     const {chaptersSortedByNumber} = data.collections;
 
+    const bottomNavChildren = [
+      a({
+        class: 'right',
+        href: chaptersSortedByNumber[0].url,
+        children: `Розділ ${chaptersSortedByNumber[0].data.numberRoman} →️`,
+      }),
+    ];
+
     return render([
       TopNav(),
+
+      nav({
+        class: 'bottom-nav space-top-1',
+        children: bottomNavChildren,
+      }),
 
       main({
         children: [
@@ -44,14 +57,8 @@ class ChapterAdditional {
       }),
 
       nav({
-        class: 'bottom-nav',
-        children: [
-          a({
-            class: 'right',
-            href: chaptersSortedByNumber[0].url,
-            children: `Розділ ${chaptersSortedByNumber[0].data.number} →️`,
-          }),
-        ],
+        class: 'bottom-nav space-top-2',
+        children: bottomNavChildren,
       }),
     ]);
   }

@@ -17,7 +17,7 @@ class Chapter {
     return {
       layout: 'general.11ty.js',
       getTitle(data) {
-        return createPageTitle(`Розділ ${data.number}. ${data.title}`);
+        return createPageTitle(`Розділ ${data.numberRoman}. ${data.title}`);
       },
     };
   }
@@ -41,8 +41,37 @@ class Chapter {
         (a, b) => a.data.number - b.data.number,
       ) ?? [];
 
+    const bottomNavChildren = [
+      data.number > chaptersSortedByNumber[0].data.number
+        ? a({
+            href: chaptersSortedByNumber[indexes.previous].url,
+            children: `← Розділ ${
+              chaptersSortedByNumber[indexes.previous].data.numberRoman
+            } `,
+          })
+        : a({
+            href: preamble[0].url,
+            children: `←️ ${preamble[0].data.title}`,
+          }),
+      data.number <
+      chaptersSortedByNumber[chaptersSortedByNumber.length - 1].data.number
+        ? a({
+            class: 'right',
+            href: chaptersSortedByNumber[indexes.next].url,
+            children: `Розділ ${
+              chaptersSortedByNumber[indexes.next].data.numberRoman
+            } →`,
+          })
+        : null,
+    ];
+
     return render([
       TopNav(),
+
+      nav({
+        class: 'bottom-nav space-top-1',
+        children: bottomNavChildren,
+      }),
 
       main({
         children: [
@@ -59,7 +88,7 @@ class Chapter {
 
               h1({
                 class: 'tc',
-                children: `<span>Розділ ${data.number}</span> ${data.title}`,
+                children: `<span>Розділ ${data.numberRoman}</span> ${data.title}`,
               }),
 
               chapterArticlesSortedByNumber.map(
@@ -84,30 +113,8 @@ class Chapter {
       }),
 
       nav({
-        class: 'bottom-nav',
-        children: [
-          data.number > chaptersSortedByNumber[0].data.number
-            ? a({
-                href: chaptersSortedByNumber[indexes.previous].url,
-                children: `← Розділ ${
-                  chaptersSortedByNumber[indexes.previous].data.number
-                } `,
-              })
-            : a({
-                href: preamble[0].url,
-                children: `←️ ${preamble[0].data.title}`,
-              }),
-          data.number <
-          chaptersSortedByNumber[chaptersSortedByNumber.length - 1].data.number
-            ? a({
-                class: 'right',
-                href: chaptersSortedByNumber[indexes.next].url,
-                children: `Розділ ${
-                  chaptersSortedByNumber[indexes.next].data.number
-                } →`,
-              })
-            : null,
-        ],
+        class: 'bottom-nav space-top-2',
+        children: bottomNavChildren,
       }),
     ]);
   }

@@ -29,6 +29,7 @@ class Contents {
             }),
           }),
           ol({
+            class: 'list-roman',
             children: data.collections.chaptersSortedByNumber.map((chapter) =>
               li({
                 children: a({

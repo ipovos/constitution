@@ -46,7 +46,7 @@ class Main {
                       class: 'tc',
                       children: a({
                         href: chapter.url,
-                        children: `<span>Розділ ${chapter.data.number}</span> ${chapter.data.title}`,
+                        children: `<span>Розділ ${chapter.data.numberRoman}</span> ${chapter.data.title}`,
                       }),
                     }),
                     (data.collections[`chapter-${chapter.data.number}`] || [])

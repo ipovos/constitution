@@ -34,8 +34,37 @@ class Article {
       return acc;
     }, null);
 
+    const bottomNavChildren = [
+      data.number > articlesSortedByNumber[0].data.number
+        ? a({
+            href: articlesSortedByNumber[indexes.previous].url,
+            children: `←️ Стаття ${
+              articlesSortedByNumber[indexes.previous].data.number
+            } `,
+          })
+        : a({
+            href: preamble[0].url,
+            children: `←️ ${preamble[0].data.title}`,
+          }),
+      data.number <
+      articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
+        ? a({
+            class: 'right',
+            href: articlesSortedByNumber[indexes.next].url,
+            children: `Стаття ${
+              articlesSortedByNumber[indexes.next].data.number
+            } →`,
+          })
+        : null,
+    ];
+
     return render([
       TopNav(),
+
+      nav({
+        class: 'bottom-nav space-top-1',
+        children: bottomNavChildren,
+      }),
 
       main({
         children: [
@@ -68,30 +97,8 @@ class Article {
       }),
 
       nav({
-        class: 'bottom-nav',
-        children: [
-          data.number > articlesSortedByNumber[0].data.number
-            ? a({
-                href: articlesSortedByNumber[indexes.previous].url,
-                children: `←️ Стаття ${
-                  articlesSortedByNumber[indexes.previous].data.number
-                } `,
-              })
-            : a({
-                href: preamble[0].url,
-                children: `←️ ${preamble[0].data.title}`,
-              }),
-          data.number <
-          articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
-            ? a({
-                class: 'right',
-                href: articlesSortedByNumber[indexes.next].url,
-                children: `Стаття ${
-                  articlesSortedByNumber[indexes.next].data.number
-                } →`,
-              })
-            : null,
-        ],
+        class: 'bottom-nav space-top-2',
+        children: bottomNavChildren,
       }),
     ]);
   }

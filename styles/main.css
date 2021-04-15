@@ -22,6 +22,14 @@ body {
     /*background: repeating-linear-gradient(transparent, transparent 25px, #ccc 25px, #ccc 26px);*/
 }
 
+a {
+    color: #1d01ed;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .container {
     max-width: 40rem;
     margin: 0 auto;
@@ -29,7 +37,6 @@ body {
 
 .bottom-nav {
     display: flex;
-    margin-top: calc(2 * var(--rem-line-height));
 }
 
 .bottom-nav .right {
@@ -119,12 +126,20 @@ ol, ul {
     margin-top: var(--rem-line-height);
 }
 
+.space-top-2 {
+    margin-top: calc(2 * var(--rem-line-height));
+}
+
 .space-top-3 {
     margin-top: calc(3 * var(--rem-line-height));
 }
 
 .space-bottom-1 {
     margin-bottom: var(--rem-line-height);
+}
+
+.list-roman {
+    list-style: upper-roman;
 }
 
 @media (max-width: 760px) {
