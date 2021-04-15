@@ -89,13 +89,13 @@ class Chapter {
           data.number > chaptersSortedByNumber[0].data.number
             ? a({
                 href: chaptersSortedByNumber[indexes.previous].url,
-                children: `⬅️ Розділ ${
+                children: `← Розділ ${
                   chaptersSortedByNumber[indexes.previous].data.number
                 } `,
               })
             : a({
                 href: preamble[0].url,
-                children: `⬅️ ${preamble[0].data.title}`,
+                children: `←️ ${preamble[0].data.title}`,
               }),
           data.number <
           chaptersSortedByNumber[chaptersSortedByNumber.length - 1].data.number
@@ -104,7 +104,7 @@ class Chapter {
                 href: chaptersSortedByNumber[indexes.next].url,
                 children: `Розділ ${
                   chaptersSortedByNumber[indexes.next].data.number
-                } ➡️`,
+                } →`,
               })
             : null,
         ],

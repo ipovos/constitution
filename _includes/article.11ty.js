@@ -30,7 +30,7 @@ class Article {
       (chapter) => chapter.data.number === chapterNumber,
     );
 
-    const {articlesSortedByNumber} = data.collections;
+    const {articlesSortedByNumber, preamble} = data.collections;
     const indexes = articlesSortedByNumber.reduce((acc, current, index) => {
       if (current.data.number === data.number) {
         return {
@@ -82,11 +82,14 @@ class Article {
           data.number > articlesSortedByNumber[0].data.number
             ? a({
                 href: articlesSortedByNumber[indexes.previous].url,
-                children: `⬅️ Стаття ${
+                children: `←️ Стаття ${
                   articlesSortedByNumber[indexes.previous].data.number
                 } `,
               })
-            : null,
+            : a({
+                href: preamble[0].url,
+                children: `←️ ${preamble[0].data.title}`,
+              }),
           data.number <
           articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
             ? a({
@@ -94,7 +97,7 @@ class Article {
                 href: articlesSortedByNumber[indexes.next].url,
                 children: `Стаття ${
                   articlesSortedByNumber[indexes.next].data.number
-                } ➡️`,
+                } →`,
               })
             : null,
         ],

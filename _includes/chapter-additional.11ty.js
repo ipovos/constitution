@@ -49,7 +49,7 @@ class ChapterAdditional {
           a({
             class: 'right',
             href: chaptersSortedByNumber[0].url,
-            children: `Розділ ${chaptersSortedByNumber[0].data.number} ➡️`,
+            children: `Розділ ${chaptersSortedByNumber[0].data.number} →️`,
           }),
         ],
       }),
