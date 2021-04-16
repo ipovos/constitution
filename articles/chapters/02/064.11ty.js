@@ -1,4 +1,4 @@
-const {getContent, getUrl} = require('../../utils');
+const {getArticlesDataByIds} = require('../../utils');
 
 class Article {
   data() {
@@ -12,18 +12,7 @@ class Article {
     const articles = data.collections.article;
     // prettier-ignore
     const articlesNumbers = [24, 25, 27, 28, 29, 40, 47, 51, 52, 55, 56, 57, 58, 59, 60, 61, 62, 63];
-    const articlesData = articlesNumbers.reduce((acc, number) => {
-      const article = articles.find(
-        (article) => article.data.number === number,
-      );
-      return {
-        ...acc,
-        [number]: {
-          url: getUrl(article),
-          content: getContent(article),
-        },
-      };
-    }, {});
+    const articlesData = getArticlesDataByIds(articlesNumbers, articles);
 
     return `<p>Конституційні права і свободи людини і громадянина не можуть бути обмежені, крім випадків, передбачених Конституцією
 України.</p>
