@@ -9,7 +9,7 @@ class Contents {
       permalink: '/',
       layout: 'general.11ty.js',
       getTitle() {
-        return createPageTitle('Головна');
+        return createPageTitle('Зміст');
       },
     };
   }

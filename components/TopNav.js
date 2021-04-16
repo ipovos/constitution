@@ -19,7 +19,7 @@ function MainPageLink({current = false} = {}) {
     a({
       class: current ? 'current' : null,
       href: current ? null : '/',
-      children: 'Головна',
+      children: 'Зміст',
     }),
   );
 }
