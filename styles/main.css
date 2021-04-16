@@ -69,6 +69,9 @@ a.current {
     padding: 0 1rem calc(5 * var(--rem-line-height));
 }
 
+main em {
+    color: #555;
+}
 
 h1, h2, h3 {
     font-weight: 400;

@@ -1,5 +1,7 @@
 function getContent(article) {
-  return article.template.frontMatter.content.replace(/{(.|\s)+}/gi, '').trim();
+  return article.template.frontMatter.content
+    .replace(/\*{(.|\s)+}\*/gi, '')
+    .trim();
 }
 
 function getUrl(article) {
