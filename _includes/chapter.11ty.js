@@ -91,6 +91,8 @@ class Chapter {
                 children: `<span>Розділ ${data.numberRoman}</span> ${data.title}`,
               }),
 
+              data.number === 7 ? p({children: data.content}) : null,
+
               chapterArticlesSortedByNumber.map(
                 (constitutionArticle, index) => {
                   return article({
