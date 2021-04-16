@@ -78,7 +78,7 @@ class Article {
                       'Конституція України <br>',
                       a({
                         href: parentChapter.url,
-                        children: `Розділ ${parentChapter.data.number}. ${parentChapter.data.title} `,
+                        children: `Розділ ${parentChapter.data.numberRoman}. ${parentChapter.data.title} `,
                       }),
                     ],
                   }),
