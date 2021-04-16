@@ -6,19 +6,19 @@ function TopNav({current} = {}) {
     nav({
       class: 'top-nav',
       children: [
-        MainPageLink({current: current === 'main'}),
         AllArticlesPageLink({current: current === 'all'}),
+        ContentsPageLink({current: current === 'contents'}),
         AboutPageLink({current: current === 'about'}),
       ],
     }),
   );
 }
 
-function MainPageLink({current = false} = {}) {
+function ContentsPageLink({current = false} = {}) {
   return render(
     a({
       class: current ? 'current' : null,
-      href: current ? null : '/',
+      href: current ? null : '/contents',
       children: 'Зміст',
     }),
   );
@@ -28,7 +28,7 @@ function AllArticlesPageLink({current = false} = {}) {
   return render(
     a({
       class: current ? 'current' : null,
-      href: current ? null : '/all',
+      href: current ? null : '/',
       children: 'Всі статті',
     }),
   );

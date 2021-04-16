@@ -6,7 +6,7 @@ const {createPageTitle} = require('./utils');
 class Contents {
   data() {
     return {
-      permalink: '/',
+      permalink: '/contents/index.html',
       layout: 'general.11ty.js',
       getTitle() {
         return createPageTitle('Зміст');
@@ -16,7 +16,7 @@ class Contents {
 
   render(data) {
     return render([
-      TopNav({current: 'main'}),
+      TopNav({current: 'contents'}),
 
       main({
         children: [

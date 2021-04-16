@@ -1,14 +1,15 @@
 const {a, main, article, h1, h2, h3} = require('../components/html');
 const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
+const {createPageTitle} = require('./utils');
 
 class Main {
   data() {
     return {
-      permalink: '/all/index.html',
+      permalink: '/',
       layout: 'general.11ty.js',
       getTitle() {
-        return 'Конституція України';
+        return createPageTitle('Всі статті');
       },
     };
   }
