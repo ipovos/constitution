@@ -1,6 +1,6 @@
 class General {
   render(data) {
-    const {getTitle} = data;
+    const {getTitle, description} = data;
     const title =
       typeof getTitle === 'function' ? getTitle(data) : 'Конституція України';
 
@@ -13,6 +13,7 @@ class General {
           content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>${title}</title>
+    <meta name="description" content="${description}">
     <link rel="stylesheet" href="/styles/main.css"/>
 </head>
 <body>
