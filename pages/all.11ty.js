@@ -7,7 +7,7 @@ class Main {
   data() {
     return {
       permalink: '/',
-      layout: 'general.11ty.js',
+      layout: 'general-all.11ty.js',
       getTitle() {
         return createPageTitle('Всі статті');
       },
