@@ -8,6 +8,7 @@ class Contents {
     return {
       permalink: '/contents/index.html',
       layout: 'general.11ty.js',
+      description: '',
       getTitle() {
         return createPageTitle('Зміст');
       },

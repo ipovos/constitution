@@ -8,6 +8,8 @@ class Main {
     return {
       permalink: '/',
       layout: 'general-all.11ty.js',
+      description:
+        'Згідно Конституції Україна є суверенна і незалежна, демократична, соціальна, правова держава. Україна є унітарною державою. Україна є республікою...',
       getTitle() {
         return createPageTitle('Всі статті');
       },
