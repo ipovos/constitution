@@ -1,4 +1,4 @@
-const {a, main, article, h1, h2, h3} = require('../components/html');
+const {a, main, article, h1, h2, h3, div} = require('../components/html');
 const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
 const {createPageTitle} = require('./utils');
@@ -42,6 +42,9 @@ class Main {
             data.collections.chapter
               .sort((a, b) => a.data.number - b.data.number)
               .map((chapter) => {
+                if (chapter.data.number === 7) {
+                  console.log(chapter.templateContent)
+                }
                 return article({
                   class: 'space-top-3',
                   children: [
@@ -52,6 +55,11 @@ class Main {
                         children: `<span>Розділ ${chapter.data.numberRoman}</span> ${chapter.data.title}`,
                       }),
                     }),
+
+                    chapter.data.number === 7 || chapter.data.number === 15
+                      ? div({children: chapter.templateContent})
+                      : null,
+
                     (data.collections[`chapter-${chapter.data.number}`] || [])
                       .sort((a, b) => a.data.number - b.data.number)
                       .map((constitutionArticle, innerIndex) => {

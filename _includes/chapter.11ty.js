@@ -4,6 +4,7 @@ const {
   article,
   header,
   p,
+  div,
   main,
   h1,
   h2,
@@ -91,7 +92,7 @@ class Chapter {
                 children: `<span>Розділ ${data.numberRoman}</span> ${data.title}`,
               }),
 
-              data.number === 7 ? p({children: data.content}) : null,
+              data.number === 7 || data.number === 15 ? div({children: data.content}) : null,
 
               chapterArticlesSortedByNumber.map(
                 (constitutionArticle, index) => {
