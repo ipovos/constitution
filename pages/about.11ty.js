@@ -8,6 +8,7 @@ class About {
     return {
       permalink: '/about/index.html',
       layout: 'general.11ty.js',
+      description: '',
       getTitle() {
         return createPageTitle('Про сайт');
       },
