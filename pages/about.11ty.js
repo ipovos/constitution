@@ -53,10 +53,6 @@ class About {
               }),
             ],
           }),
-          p({
-            children:
-              'На фавіконці шрифт Source Sans Pro <br><em>Copyright 2010, 2012, 2014 Adobe Systems Incorporated (<a href="http://www.adobe.com/">http://www.adobe.com/</a>), with Reserved Font Name Source. SIL Open Font License, 1.1 (<a href="http://scripts.sil.org/OFL">http://scripts.sil.org/OFL</a>)</em>',
-          }),
         ],
       }),
     ]);
