@@ -49,10 +49,12 @@ class Chapter {
             children: `← Розділ ${
               chaptersSortedByNumber[indexes.previous].data.numberRoman
             } `,
+            rel: 'prev',
           })
         : a({
             href: preamble[0].url,
             children: `←️ ${preamble[0].data.title}`,
+            rel: 'prev',
           }),
       data.number <
       chaptersSortedByNumber[chaptersSortedByNumber.length - 1].data.number
@@ -62,6 +64,7 @@ class Chapter {
             children: `Розділ ${
               chaptersSortedByNumber[indexes.next].data.numberRoman
             } →`,
+            rel: 'next',
           })
         : null,
     ];

@@ -21,6 +21,7 @@ class ChapterAdditional {
         class: 'right',
         href: chaptersSortedByNumber[0].url,
         children: `Розділ ${chaptersSortedByNumber[0].data.numberRoman} →️`,
+        rel: 'next',
       }),
     ];
 

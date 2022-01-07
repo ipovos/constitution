@@ -41,10 +41,12 @@ class Article {
             children: `←️ Стаття ${
               articlesSortedByNumber[indexes.previous].data.number
             } `,
+            rel: 'prev',
           })
         : a({
             href: preamble[0].url,
             children: `←️ ${preamble[0].data.title}`,
+            rel: 'prev',
           }),
       data.number <
       articlesSortedByNumber[articlesSortedByNumber.length - 1].data.number
@@ -54,6 +56,7 @@ class Article {
             children: `Стаття ${
               articlesSortedByNumber[indexes.next].data.number
             } →`,
+            rel: 'next',
           })
         : null,
     ];
