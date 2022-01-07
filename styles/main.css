@@ -145,6 +145,10 @@ ol, ul {
     list-style: upper-roman;
 }
 
+.list-none {
+    list-style: none;
+}
+
 @media (max-width: 760px) {
     h1 {
         font-size: 1.602rem;

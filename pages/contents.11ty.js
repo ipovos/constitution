@@ -31,13 +31,30 @@ class Contents {
           }),
           ol({
             class: 'list-roman',
-            children: data.collections.chaptersSortedByNumber.map((chapter) =>
-              li({
-                children: a({
-                  href: chapter.url,
-                  children: chapter.data.title,
-                }),
-              }),
+            children: data.collections.chaptersSortedByNumber.map((chapter) => {
+                const chapterArticlesSortedByNumber = data.collections['chapter-' + chapter.data.number]?.sort(
+                  (a, b) => a.data.number - b.data.number,
+                );
+
+                return li({
+                  children: [
+                    a({
+                      href: chapter.url,
+                      children: chapter.data.title,
+                    }),
+                    chapterArticlesSortedByNumber ? ol({
+                      class: 'list-none',
+                      start: chapterArticlesSortedByNumber[0].data.number,
+                      children: chapterArticlesSortedByNumber?.map((article) => li({
+                        children: a({
+                          href: article.url,
+                          children: `Стаття ${article.data.number}`
+                        }),
+                      })),
+                    }) : null,
+                  ],
+                })
+              },
             ),
           }),
         ],
