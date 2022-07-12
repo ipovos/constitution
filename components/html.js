@@ -18,6 +18,7 @@ module.exports = {
   p: createHostedComponent('p'),
   nav: createHostedComponent('nav'),
   header: createHostedComponent('header'),
+  footer: createHostedComponent('footer'),
   main: createHostedComponent('main'),
   article: createHostedComponent('article'),
   section: createHostedComponent('section'),

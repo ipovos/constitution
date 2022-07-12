@@ -1,4 +1,4 @@
-const {a, header, nav, h1, article, main, p} = require('../components/html');
+const {a, header, footer, nav, h1, article, main, p} = require('../components/html');
 const {TopNav} = require('../components/TopNav');
 const {render} = require('../components/render');
 const {createPageTitle} = require('../pages/utils');
@@ -64,9 +64,12 @@ class Article {
     return render([
       TopNav(),
 
-      nav({
-        class: 'bottom-nav space-top-1',
-        children: bottomNavChildren,
+      footer({
+        class: 'space-top-1',
+        children: nav({
+          class: 'bottom-nav',
+          children: bottomNavChildren,
+        }),
       }),
 
       main({
@@ -99,7 +102,7 @@ class Article {
         ],
       }),
 
-      nav({
+      footer({
         class: 'bottom-nav space-top-2',
         children: bottomNavChildren,
       }),

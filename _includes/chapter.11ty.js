@@ -3,6 +3,7 @@ const {
   a,
   article,
   header,
+  footer,
   p,
   div,
   main,
@@ -72,9 +73,12 @@ class Chapter {
     return render([
       TopNav(),
 
-      nav({
-        class: 'bottom-nav space-top-1',
-        children: bottomNavChildren,
+      footer({
+        class: 'space-top-1',
+        children: nav({
+          class: 'bottom-nav',
+          children: bottomNavChildren,
+        }),
       }),
 
       main({
@@ -118,7 +122,7 @@ class Chapter {
         ],
       }),
 
-      nav({
+      footer({
         class: 'bottom-nav space-top-2',
         children: bottomNavChildren,
       }),
