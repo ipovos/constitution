@@ -46,11 +46,6 @@ a.current {
     color: inherit;
 }
 
-.container {
-    max-width: 40rem;
-    margin: 0 auto;
-}
-
 .top-nav {
     display: flex;
     justify-content: center;
